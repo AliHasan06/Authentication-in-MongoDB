@@ -7,12 +7,19 @@ const cookieParser = require('cookie-parser');
 app.use(cookieParser())
 
 app.get('/', (req, res) => {
-    bcrypt.genSalt(saltRounds, function (err, salt) {
-        bcrypt.hash('alihasan', salt, function (err, hash) {
-            // Store hash in your password DB.
-        });
+    bcrypt.compare("alihasan", "$2b$10$7IICOxufKiQGm9GHP013JeKnly2Hz/ylFVFFpcoKLnrSX7nu1LWKm", function(err, result) {
+console.log(result);
     });
 })
+
+// app.get('/', (req, res) => {
+//     bcrypt.genSalt(10, function (err, salt) {
+//         bcrypt.hash('alihasan', salt, function (err, hash) {
+// console.log(hash);
+//         });
+//     });
+//     res.send('Hello Backend!');
+// })
 
 // app.get('/', (req, res) => {
 //     res.cookie("name", "Ali Hasan")

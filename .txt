@@ -1,0 +1,4 @@
+real password = alihasan    
+
+
+encrypted = $2b$10$7IICOxufKiQGm9GHP013JeKnly2Hz/ylFVFFpcoKLnrSX7nu1LWKm
