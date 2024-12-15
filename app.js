@@ -1,16 +1,34 @@
 const express = require('express');
 const app = express();
 const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken')
+const jwt = require('jsonwebtoken');
 const cookieParser = require('cookie-parser');
+
+
+
+
+
+app.get('/',(req, res) => {
+    let token = jwt.sign({email: "ali@gmail.com"}, "secret")
+    console.log(token);
+    res.cookie("token", token)
+    res.send('Hello World!');
+})
+
+
+
+
+
+
+
 
 app.use(cookieParser())
 
-app.get('/', (req, res) => {
-    bcrypt.compare("alihasan", "$2b$10$7IICOxufKiQGm9GHP013JeKnly2Hz/ylFVFFpcoKLnrSX7nu1LWKm", function(err, result) {
-console.log(result);
-    });
-})
+// app.get('/', (req, res) => {
+//     bcrypt.compare("alihasan", "$2b$10$7IICOxufKiQGm9GHP013JeKnly2Hz/ylFVFFpcoKLnrSX7nu1LWKm", function(err, result) {
+// console.log(result);
+//     });
+// })
 
 // app.get('/', (req, res) => {
 //     bcrypt.genSalt(10, function (err, salt) {
